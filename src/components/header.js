@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { rhythm } from '../utils/typography'
 
-const Header = () => {
+const Header = ({ siteTitle }) => {
   return (
     <header
       style={{
@@ -19,7 +19,7 @@ const Header = () => {
             color: `inherit` 
           }}
         >
-          Tommy Noe's Blog
+          {siteTitle}
         </Link>
       </h3>
       <nav 

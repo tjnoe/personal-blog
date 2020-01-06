@@ -1,8 +1,19 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 import Header from './header'
 import { rhythm } from '../utils/typography'
 
 const Layout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query SiteMetadataQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }  
+  `)
+
   return (
     <div
       style={{ 
@@ -12,7 +23,7 @@ const Layout = ({ children }) => {
         paddingTop: `${rhythm(1.5)}`
       }}
       >
-      <Header />
+      <Header siteTitle={data.site.siteMetadata.title} />
       <main>{children}</main>
       <footer>
         © {new Date().getFullYear()}, Built with

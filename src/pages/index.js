@@ -6,7 +6,8 @@ export default () => (
     <h1>Tommy Noe</h1>
     <div>
       <p>
-        Hey! I'm Tommy Noe, a Salesforce Development Manager by day, general web developer by night from Indianapolis, IN. I post some things I'm learning and working on here. Hope you enjoy!
+        Hey! I'm Tommy Noe, a Salesforce Development Manager by day, general web developer by night from Indianapolis, IN. 
+        I post some things I'm learning and working on here. Hope you enjoy!
       </p>
     </div>
   </Layout>
