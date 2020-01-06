@@ -6,4 +6,8 @@ The source for my developer blog, created originally for the #100DaysOfGatsby ch
 - Gatsby - to power the site
 - Markdown - to power the post content, parsed and rendered with remark
 
-More to come!
+## Todo
+* [ ] Update 404 page
+* [ ] More fancy styles
+* [ ] Deploy live!
+* [ ] So much more...
