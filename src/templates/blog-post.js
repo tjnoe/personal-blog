@@ -9,8 +9,8 @@ const BlogPost = ({ data }) => {
   return (
     <Layout>
       <div>
-        <h2>{frontmatter.title}</h2>
-        <h3>{frontmatter.date}</h3>
+        <h1>{frontmatter.title}</h1>
+        <h2>{frontmatter.date}</h2>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </Layout>
