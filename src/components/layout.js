@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
       >
       <Header siteTitle={data.site.siteMetadata.title} />
       <main>{children}</main>
-      <footer>
+      <footer style={{ fontSize: `0.75rem` }}>
         © {new Date().getFullYear()}, Built with
           {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a> for #100DaysOfGatsby

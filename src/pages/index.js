@@ -17,9 +17,9 @@ const IndexPage = ({
           color: `inherit`,
         }}
       >
-        <h3
+        <h4
           style={{
-            marginBottom: `${rhythm(1 / 4)}`
+            margin: `${rhythm(1 / 4)} 0`
           }}
         >
           {node.frontmatter.title}{" "}
@@ -28,7 +28,7 @@ const IndexPage = ({
               color: `#bbb` 
             }}
           >- {node.frontmatter.date}</span>
-        </h3>
+        </h4>
         <p>{node.excerpt}</p>
       </Link>
     </div>
@@ -36,7 +36,7 @@ const IndexPage = ({
 
   return (
     <Layout>
-      <h1>Posts</h1>
+      <h1>Latest Posts</h1>
       <div>
         {posts}
       </div>

@@ -10,7 +10,13 @@ const BlogPost = ({ data }) => {
     <Layout>
       <div>
         <h1>{frontmatter.title}</h1>
-        <h2>{frontmatter.date}</h2>
+        <h2 
+          style={{ 
+            fontSize: `0.75rem`, 
+            color: `#bbb`,
+            marginTop: `0` 
+          }}
+        >{frontmatter.date}</h2>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </Layout>
