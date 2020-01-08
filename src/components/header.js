@@ -8,7 +8,7 @@ const Header = ({ siteTitle }) => {
       style={{
         display: `flex`,
         justifyContent: `space-between`,
-        marginBottom: `${rhythm(1.5)}`,
+        margin: `${rhythm(1.5)}`,
       }}
     >
       <h3 style={{ margin: `0` }}>
@@ -28,6 +28,9 @@ const Header = ({ siteTitle }) => {
           justifyContent: `space-between`,
         }}
       >
+        <Link to={`/`} style={{ marginRight: `10px`}}>
+          Blog
+        </Link>
         <Link to={`/about/`} style={{ marginRight: `10px`}}>
           About
         </Link>
