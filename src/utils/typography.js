@@ -1,7 +1,7 @@
 import Typography from 'typography'
-import twinPeaksTheme from 'typography-theme-twin-peaks'
+import typographyTheme from 'typography-theme-twin-peaks'
 
-const typography = new Typography(twinPeaksTheme)
+const typography = new Typography(typographyTheme)
 
 export const { rhythm } = typography
 export default typography

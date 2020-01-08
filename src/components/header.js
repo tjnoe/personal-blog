@@ -8,7 +8,8 @@ const Header = ({ siteTitle }) => {
       style={{
         display: `flex`,
         justifyContent: `space-between`,
-        margin: `${rhythm(1.5)}`,
+        padding: `${rhythm(1.25)}`,
+        backgroundColor: `hsla(0,0%,0%,0.04)`
       }}
     >
       <h3 style={{ margin: `0` }}>
@@ -16,7 +17,8 @@ const Header = ({ siteTitle }) => {
           to={`/`} 
           style={{ 
             backgroundImage: `none`,
-            color: `inherit` 
+            color: `inherit`,
+            textShadow: `none`, 
           }}
         >
           {siteTitle}
@@ -28,10 +30,10 @@ const Header = ({ siteTitle }) => {
           justifyContent: `space-between`,
         }}
       >
-        <Link to={`/`} style={{ marginRight: `10px`}}>
+        <Link to={`/`} style={{ marginRight: `10px`, textShadow: `none` }}>
           Blog
         </Link>
-        <Link to={`/about/`} style={{ marginRight: `10px`}}>
+        <Link to={`/about/`} style={{ marginRight: `10px`, textShadow: `none` }}>
           About
         </Link>
       </nav>
