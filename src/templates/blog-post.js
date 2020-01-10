@@ -3,8 +3,8 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 
 const BlogPost = ({ data }) => {
-  const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+  const { mdx } = data
+  const { frontmatter, body } = mdx
 
   return (
     <Layout>
@@ -17,7 +17,7 @@ const BlogPost = ({ data }) => {
             marginTop: `0` 
           }}
         >{frontmatter.date}</h2>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <div dangerouslySetInnerHTML={{ __html: body }} />
       </div>
     </Layout>
   )
@@ -25,8 +25,8 @@ const BlogPost = ({ data }) => {
 
 export const pageQuery = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+    mdx(frontmatter: { path: { eq: $path } }) {
+      body
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path

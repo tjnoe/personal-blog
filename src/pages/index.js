@@ -5,13 +5,13 @@ import Layout from '../components/layout'
 
 const IndexPage = ({ 
   data: {
-    allMarkdownRemark: { edges },
+    allMdx: { nodes },
   },
 }) => {
-  const posts = edges.map(({ node }) => (
-    <div key={node.id}>
+  const posts = nodes.map(post => (
+    <div key={post.id}>
       <Link
-        to={node.frontmatter.path}
+        to={post.frontmatter.path}
         style={{ 
           textDecoration: `none`,
           color: `inherit`,
@@ -22,14 +22,14 @@ const IndexPage = ({
             margin: `${rhythm(1 / 4)} 0`
           }}
         >
-          {node.frontmatter.title}{" "}
+          {post.frontmatter.title}{" "}
           <span 
             style={{ 
               color: `#bbb` 
             }}
-          >- {node.frontmatter.date}</span>
+          >- {post.frontmatter.date}</span>
         </h4>
-        <p>{node.excerpt}</p>
+        <p>{post.excerpt}</p>
       </Link>
     </div>
   ))
@@ -47,17 +47,15 @@ const IndexPage = ({
 export default IndexPage
 export const postsQuery = graphql`
   query PostsQuery {
-    allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}) {
-      edges {
-        node {
-          frontmatter {
-            path
-            title
-            date(formatString: "MMMM DD, YYYY")
-          }
-          excerpt(pruneLength: 250)
-          id
+    allMdx(sort: {order: DESC, fields: frontmatter___date}) {
+      nodes {
+        frontmatter {
+          path
+          title
+          date(formatString: "MMMM DD, YYYY")
         }
+        excerpt(pruneLength: 250)
+        id
       }
     }
   }
