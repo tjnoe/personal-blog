@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 const BlogPost = ({ data }) => {
   const { mdx } = data
@@ -17,7 +18,7 @@ const BlogPost = ({ data }) => {
             marginTop: `0` 
           }}
         >{frontmatter.date}</h2>
-        <div dangerouslySetInnerHTML={{ __html: body }} />
+        <MDXRenderer>{body}</MDXRenderer>
       </div>
     </Layout>
   )
