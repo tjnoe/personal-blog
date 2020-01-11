@@ -26,6 +26,7 @@ module.exports = {
           default: require.resolve('./src/components/layout.js')
         }
       }
-    }
+    },
+    `gatsby-plugin-emotion`
   ],
 }
