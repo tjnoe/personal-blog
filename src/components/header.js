@@ -8,20 +8,8 @@ const HeroHeader = styled.header`
   justify-content: space-between;
   padding: ${rhythm(1.25)};
   position: relative;
-
-  ::before {
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-image: url('/images/alexander-schimmeck-hero.jpg');
-    background-position: top 20% center;
-    background-size: cover;
-    filter: grayscale(100%);
-    z-index: -1;
-  }
+  background-color: #eaeaea;
+  background-image: url('/images/asfalt-dark.png');
 `
 
 const Header = ({ siteTitle }) => {
