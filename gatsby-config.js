@@ -12,6 +12,13 @@ module.exports = {
         path: `${__dirname}/src/content`
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/images`
+      },
+    },
     `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-typography`,
@@ -27,6 +34,8 @@ module.exports = {
         }
       }
     },
-    `gatsby-plugin-emotion`
+    `gatsby-plugin-emotion`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
   ],
 }
