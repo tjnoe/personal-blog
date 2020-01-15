@@ -40,7 +40,6 @@ const IndexPage = ({
       <div>
         {posts}
       </div>
-      <a class="twitter-timeline" data-width="300" data-height="800" href="https://twitter.com/tommynoe?ref_src=twsrc%5Etfw">Tweets by tommynoe</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </Layout>
   )
 }
