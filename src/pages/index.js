@@ -1,62 +1,19 @@
 import React from "react"
-import slugify from "slugify"
-import { Link, graphql } from "gatsby"
-import { rhythm } from "../utils/typography"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import PostPreview from "../components/post-preview"
 
 const IndexPage = ({
   data: {
     allMdx: { nodes },
   },
 }) => {
-  const posts = nodes.map(post => (
-    <div
-      key={post.id}
-      style={{
-        marginBottom: `${rhythm(1)}`,
-      }}
-    >
-      <Link
-        to={post.frontmatter.path}
-        style={{
-          textDecoration: `none`,
-          color: `inherit`,
-        }}
-      >
-        <h4
-          style={{
-            margin: `${rhythm(1 / 4)} 0`,
-          }}
-        >
-          {post.frontmatter.title}{" "}
-          <span
-            style={{
-              color: `#bbb`,
-            }}
-          >
-            - {post.frontmatter.date}
-          </span>
-        </h4>
-        <p style={{ margin: 0 }}>{post.excerpt}</p>
-      </Link>
-      <div style={{ fontSize: `0.75rem` }}>
-        {post.frontmatter.tags.split(", ").map(tag => (
-          <Link
-            key={tag}
-            to={`/tags/${slugify(tag)}`}
-            style={{ display: `inline-block`, marginRight: `0.25rem` }}
-          >
-            #{tag}
-          </Link>
-        ))}
-      </div>
-    </div>
-  ))
+  const posts = nodes.map(post => <PostPreview key={post.id} post={post} />)
 
   return (
     <Layout>
       <h1>Latest Posts</h1>
-      <div>{posts}</div>
+      {posts}
     </Layout>
   )
 }
