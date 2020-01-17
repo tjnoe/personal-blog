@@ -4,10 +4,11 @@ import { Link, graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
 import Layout from "../components/layout"
 
-const IndexPage = ({
+const TaggedPostsPage = ({
   data: {
     allMdx: { nodes },
   },
+  pageContext,
 }) => {
   const posts = nodes.map(post => (
     <div
@@ -55,16 +56,19 @@ const IndexPage = ({
 
   return (
     <Layout>
-      <h1>Latest Posts</h1>
+      <h1>Posts tagged "{pageContext.tag}"</h1>
       <div>{posts}</div>
     </Layout>
   )
 }
 
-export default IndexPage
+export default TaggedPostsPage
 export const postsQuery = graphql`
-  query PostsQuery {
-    allMdx(sort: { order: DESC, fields: frontmatter___date }) {
+  query($tagRegex: String!) {
+    allMdx(
+      sort: { order: DESC, fields: frontmatter___date }
+      filter: { frontmatter: { tags: { regex: $tagRegex } } }
+    ) {
       nodes {
         frontmatter {
           path
