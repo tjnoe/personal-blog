@@ -7,8 +7,18 @@ import Particles from "./particles"
 const HeroHeader = styled(`header`)`
   display: flex;
   justify-content: space-between;
-  padding: ${rhythm(1.25)};
+  padding: ${rhythm(1.25)} calc((100vw - 550px - ${rhythm(1.25)}) / 2);
   position: relative;
+`
+
+const Nav = styled(`nav`)`
+  display: flex;
+  justify-content: space-between;
+
+  .nav-link {
+    margin-right: 10px;
+    text-shadow: none;
+  }
 `
 
 const Header = ({ siteTitle }) => {
@@ -27,22 +37,14 @@ const Header = ({ siteTitle }) => {
             {siteTitle}
           </Link>
         </h3>
-        <nav
-          style={{
-            display: `flex`,
-            justifyContent: `space-between`,
-          }}
-        >
-          <Link to={`/`} style={{ marginRight: `10px`, textShadow: `none` }}>
+        <Nav>
+          <Link to={`/`} className="nav-link">
             Blog
           </Link>
-          <Link
-            to={`/about/`}
-            style={{ marginRight: `10px`, textShadow: `none` }}
-          >
+          <Link to={`/about/`} className="nav-link">
             About
           </Link>
-        </nav>
+        </Nav>
       </HeroHeader>
       <Particles />
     </div>
