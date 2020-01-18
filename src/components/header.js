@@ -1,9 +1,8 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import { rhythm } from "../utils/typography"
 import Particles from "./particles"
-import BackgroundImage from "gatsby-background-image"
 
 const HeroHeader = styled(`header`)`
   display: flex;
@@ -13,18 +12,6 @@ const HeroHeader = styled(`header`)`
 `
 
 const Header = ({ siteTitle }) => {
-  const { image } = useStaticQuery(graphql`
-    query {
-      image: file(relativePath: { eq: "asfalt-dark.png" }) {
-        sharp: childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
-
   return (
     <div style={{ position: `relative` }}>
       <HeroHeader>
