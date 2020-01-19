@@ -1,7 +1,8 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Layout from '../components/layout'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
+import React from "react"
+import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import { MDXRenderer } from "gatsby-plugin-mdx"
+import SEO from "../components/seo"
 
 const BlogPost = ({ data }) => {
   const { mdx } = data
@@ -9,15 +10,18 @@ const BlogPost = ({ data }) => {
 
   return (
     <Layout>
+      <SEO />
       <div>
         <h1>{frontmatter.title}</h1>
-        <h2 
-          style={{ 
-            fontSize: `0.75rem`, 
+        <h2
+          style={{
+            fontSize: `0.75rem`,
             color: `#bbb`,
-            marginTop: `0` 
+            marginTop: `0`,
           }}
-        >{frontmatter.date}</h2>
+        >
+          {frontmatter.date}
+        </h2>
         <MDXRenderer>{body}</MDXRenderer>
       </div>
     </Layout>

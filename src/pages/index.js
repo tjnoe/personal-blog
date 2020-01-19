@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import PostPreview from "../components/post-preview"
+import SEO from "../components/seo"
 
 const IndexPage = ({
   data: {
@@ -12,6 +13,7 @@ const IndexPage = ({
 
   return (
     <Layout>
+      <SEO />
       <h1>Latest Posts</h1>
       {posts}
     </Layout>

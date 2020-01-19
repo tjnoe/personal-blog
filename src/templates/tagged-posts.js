@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import PostPreview from "../components/post-preview"
+import SEO from "../components/seo"
 
 const TaggedPostsPage = ({
   data: {
@@ -13,6 +14,7 @@ const TaggedPostsPage = ({
 
   return (
     <Layout>
+      <SEO />
       <h1>Posts tagged "{pageContext.tag}"</h1>
       {posts}
     </Layout>
