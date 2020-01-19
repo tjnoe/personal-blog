@@ -8,10 +8,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
     query {
       allMdx(sort: { order: DESC, fields: frontmatter___date }) {
+        group(field: frontmatter___tags) {
+          tag: fieldValue
+        }
         nodes {
           frontmatter {
             path
-            tags
           }
         }
       }
@@ -30,19 +32,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: templateComponent,
       context: {},
     })
-
-    post.frontmatter.tags.forEach(tag => {
-      tags.add(tag)
-    })
   })
 
-  tags.forEach(tag => {
+  result.data.allMdx.group.forEach(({ tag }) => {
     createPage({
       path: `/tags/${slugify(tag)}`,
       component: taggedPostsComponent,
       context: {
         tag: tag,
-        tagRegex: `/${tag}/`,
       },
     })
   })

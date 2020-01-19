@@ -23,10 +23,10 @@ const TaggedPostsPage = ({
 
 export default TaggedPostsPage
 export const postsQuery = graphql`
-  query($tagRegex: String!) {
+  query($tag: String!) {
     allMdx(
       sort: { order: DESC, fields: frontmatter___date }
-      filter: { frontmatter: { tags: { regex: $tagRegex } } }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       nodes {
         frontmatter {
