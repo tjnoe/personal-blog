@@ -33,7 +33,7 @@ const PostPreview = ({ post }) => (
       <p style={{ margin: 0 }}>{post.excerpt}</p>
     </Link>
     <div style={{ fontSize: `0.75rem` }}>
-      {post.frontmatter.tags.split(", ").map(tag => (
+      {post.frontmatter.tags.map(tag => (
         <Link
           key={tag}
           to={`/tags/${slugify(tag)}`}

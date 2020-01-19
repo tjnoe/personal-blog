@@ -31,7 +31,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       context: {},
     })
 
-    post.frontmatter.tags.split(", ").forEach(tag => {
+    post.frontmatter.tags.forEach(tag => {
       tags.add(tag)
     })
   })
