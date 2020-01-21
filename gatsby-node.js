@@ -24,8 +24,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  const tags = new Set()
-
   result.data.allMdx.nodes.forEach(post => {
     createPage({
       path: post.frontmatter.path,
