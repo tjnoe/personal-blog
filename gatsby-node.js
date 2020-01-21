@@ -24,15 +24,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  result.data.allMdx.nodes.forEach(post => {
+  const { nodes, group } = result.data.allMdx
+
+  nodes.forEach((post, index) => {
     createPage({
       path: post.frontmatter.path,
       component: templateComponent,
-      context: {},
+      context: {
+        previous: index === 0 ? null : nodes[index - 1],
+        next: index === nodes.length - 1 ? null : nodes[index + 1],
+      },
     })
   })
 
-  result.data.allMdx.group.forEach(({ tag }) => {
+  group.forEach(({ tag }) => {
     createPage({
       path: `/tags/${slugify(tag)}`,
       component: taggedPostsComponent,
