@@ -1,33 +1,24 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { graphql, useStaticQuery } from "gatsby"
+import useSiteMetadata from "../hooks/use-site-metadata"
 
 const SEO = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          author
-          description
-          title
-          titleTemplate
-          twitterUsername
-        }
-      }
-    }
-  `)
-
-  const metadata = data.site.siteMetadata
+  const {
+    description,
+    title,
+    titleTemplate,
+    twitterUsername,
+  } = useSiteMetadata()
 
   return (
     <>
-      <Helmet title={metadata.title} titleTemplate={metadata.titleTemplate}>
-        <meta name="description" content={metadata.description} />
-        <meta name="og:description" content={metadata.description} />
-        <meta name="og:title" content={metadata.title} />
-        <meta name="twitter:description" content={metadata.description} />
-        <meta name="twitter:title" content={metadata.title} />
-        <meta name="twitter:creator" content={metadata.twitterUsername} />
+      <Helmet title={title} titleTemplate={titleTemplate}>
+        <meta name="description" content={description} />
+        <meta name="og:description" content={description} />
+        <meta name="og:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:creator" content={twitterUsername} />
       </Helmet>
     </>
   )
