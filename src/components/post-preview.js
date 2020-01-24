@@ -1,12 +1,30 @@
 import React from "react"
 import slugify from "slugify"
+import styled from "@emotion/styled"
 import { Link } from "gatsby"
 import { rhythm } from "../utils/typography"
+
+const ReadPostLink = styled(Link)`
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background-image: none;
+  transition: all 0.5s ease;
+  text-shadow: none;
+
+  &:hover {
+    color: #fff;
+    background-color: #ff7500;
+    border-radius: 5px;
+  }
+`
 
 const PostPreview = ({ post }) => (
   <div
     style={{
-      marginBottom: `${rhythm(1)}`,
+      marginBottom: `${rhythm(0.5)}`,
+      paddingBottom: `${rhythm(0.5)}`,
+      borderBottom: `1px solid #eaeaea`,
     }}
   >
     <Link
@@ -30,19 +48,20 @@ const PostPreview = ({ post }) => (
           - {post.frontmatter.date}
         </span>
       </h4>
-      <p style={{ margin: 0 }}>{post.excerpt}</p>
     </Link>
+    <p style={{ margin: 0 }}>{post.excerpt}</p>
     <div style={{ fontSize: `0.75rem` }}>
       {post.frontmatter.tags.map(tag => (
         <Link
           key={tag}
           to={`/tags/${slugify(tag)}`}
-          style={{ display: `inline-block`, marginRight: `0.25rem` }}
+          style={{ display: `inline-block`, margin: `0 0.25rem 0.5rem 0` }}
         >
           #{tag}
         </Link>
       ))}
     </div>
+    <ReadPostLink to={post.frontmatter.path}>Read Post</ReadPostLink>
   </div>
 )
 
