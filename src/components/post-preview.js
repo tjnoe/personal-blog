@@ -6,7 +6,6 @@ import { rhythm } from "../utils/typography"
 
 const ReadPostLink = styled(Link)`
   display: block;
-  text-align: center;
   text-decoration: none;
   background-image: none;
   transition: all 0.5s ease;
@@ -27,7 +26,7 @@ const PostPreview = ({ post }) => (
       borderBottom: `1px solid #eaeaea`,
     }}
   >
-    <Link
+    <ReadPostLink
       to={post.frontmatter.path}
       style={{
         textDecoration: `none`,
@@ -48,7 +47,7 @@ const PostPreview = ({ post }) => (
           - {post.frontmatter.date}
         </span>
       </h4>
-    </Link>
+    </ReadPostLink>
     <p style={{ margin: 0 }}>{post.excerpt}</p>
     <div style={{ fontSize: `0.75rem` }}>
       {post.frontmatter.tags.map(tag => (
@@ -61,7 +60,9 @@ const PostPreview = ({ post }) => (
         </Link>
       ))}
     </div>
-    <ReadPostLink to={post.frontmatter.path}>Read Post</ReadPostLink>
+    <ReadPostLink to={post.frontmatter.path} style={{ textAlign: `center` }}>
+      Read Post
+    </ReadPostLink>
   </div>
 )
 
