@@ -4,7 +4,7 @@ import { Particles as ReactParticles } from "react-particles-js"
 const particlesParams = {
   particles: {
     number: {
-      value: 150,
+      value: 200,
       density: {
         enable: true,
         value_area: 800,
@@ -12,6 +12,15 @@ const particlesParams = {
     },
     color: {
       value: "#ff7500",
+    },
+    shape: {
+      type: "circle",
+    },
+    size: {
+      value: 3,
+    },
+    opacity: {
+      value: 0.2,
     },
     line_linked: {
       enable: true,

@@ -26,7 +26,7 @@ const PostPreview = ({ post }) => (
       borderBottom: `1px solid #eaeaea`,
     }}
   >
-    <ReadPostLink
+    <Link
       to={post.frontmatter.path}
       style={{
         textDecoration: `none`,
@@ -47,7 +47,7 @@ const PostPreview = ({ post }) => (
           - {post.frontmatter.date}
         </span>
       </h4>
-    </ReadPostLink>
+    </Link>
     <p style={{ margin: 0 }}>{post.excerpt}</p>
     <div style={{ fontSize: `0.75rem` }}>
       {post.frontmatter.tags.map(tag => (
