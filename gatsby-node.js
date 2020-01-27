@@ -14,6 +14,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         nodes {
           frontmatter {
             path
+            image
           }
         }
       }
@@ -31,6 +32,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       path: post.frontmatter.path,
       component: templateComponent,
       context: {
+        image: post.frontmatter.image
+          ? `/${post.frontmatter.image.replace("/", "\\/")}/`
+          : "",
         previous: index === 0 ? null : nodes[index - 1],
         next: index === nodes.length - 1 ? null : nodes[index + 1],
       },

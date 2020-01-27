@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
 import Layout from "../components/layout"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import SEO from "../components/seo"
@@ -7,7 +8,7 @@ import { rhythm } from "../utils/typography"
 
 const BlogPost = ({ data, pageContext }) => {
   const { previous, next } = pageContext
-  const { mdx } = data
+  const { mdx, file } = data
   const { frontmatter, body } = mdx
 
   return (
@@ -24,6 +25,11 @@ const BlogPost = ({ data, pageContext }) => {
         >
           {frontmatter.date}
         </h2>
+        <Img
+          fluid={file.childImageSharp.fluid}
+          alt={frontmatter.imageAlt}
+          style={{ marginBottom: `1.5rem` }}
+        />
         <MDXRenderer>{body}</MDXRenderer>
         <div
           style={{
@@ -44,13 +50,21 @@ const BlogPost = ({ data, pageContext }) => {
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
+  query($path: String!, $image: String) {
     mdx(frontmatter: { path: { eq: $path } }) {
       body
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        imageAlt
+      }
+    }
+    file(relativePath: { regex: $image }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
       }
     }
   }
