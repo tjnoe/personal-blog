@@ -25,11 +25,13 @@ const BlogPost = ({ data, pageContext }) => {
         >
           {frontmatter.date}
         </h2>
-        <Img
-          fluid={file.childImageSharp.fluid}
-          alt={frontmatter.imageAlt}
-          style={{ marginBottom: `1.5rem` }}
-        />
+        {file.childImageSharp && (
+          <Img
+            fluid={file.childImageSharp.fluid}
+            alt={frontmatter.imageAlt}
+            style={{ marginBottom: `1.5rem` }}
+          />
+        )}
         <MDXRenderer>{body}</MDXRenderer>
         <div
           style={{
